@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 app.get("/", function(req, res) { // descreve uma rota
-    res.sendFile(__dirname + '/html/index.html')
+    res.sendFile(__dirname + '/html/index.html') // __dirname volta a rota inicial 
     
     //res.send('seja bem vindo')
 })
