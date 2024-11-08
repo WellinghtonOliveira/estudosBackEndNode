@@ -23,10 +23,15 @@ const { engine } = require('express-handlebars');  // Correção no modo de impo
             console.error('Não foi possível conectar ao banco de dados:', err);
         });
 
-// Rotas
-app.get('/cad', function(req, res) {
-    res.send('rotas');
-});
+    // Rotas
+    app.get('/cad', function(req, res) {
+        res.render('formulario')
+    });
+
+
+
+
+
 
 app.listen(8080, function () {
     console.log('servidor online');
