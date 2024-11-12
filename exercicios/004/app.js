@@ -1,11 +1,17 @@
 const express = require('express');
 const app = express();
 const { engine } = require('express-handlebars');  // Correção no modo de importação
+const bodyParser = require('body-parser')
+
 
 // config
     // Template Engine
     app.engine('handlebars', engine({ defaultLayout: 'main' }));
     app.set('view engine', 'handlebars');
+
+    // Body Parser
+    app.use(bodyParser.urlencoded({extended: false}))
+    app.use(bodyParser.json())
 
     // Conexão com o banco de dados MySQL
     const Sequelize = require('sequelize');
@@ -29,7 +35,7 @@ const { engine } = require('express-handlebars');  // Correção no modo de impo
     });
 
     app.post('/rp', function(req, res) {
-        res.send('FORMULARIO RECEBIDO!')
+        res.send(`Texto: ${req.body.titulo}</br> Conteudo: ${req.body.conteudo}`)
     })
 
 
