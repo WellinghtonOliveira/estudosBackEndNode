@@ -29,7 +29,7 @@ const bodyParser = require('body-parser')
             console.error('Não foi possível conectar ao banco de dados:', err);
         });
 
-    // Rotas
+    // Rotas 
     app.get('/', function(req, res) {
         res.render('formulario')
     });
