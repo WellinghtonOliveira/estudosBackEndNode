@@ -31,6 +31,10 @@ const Post = require('./../005/models/Post.js')
 
     // Rotas 
     app.get('/', function(req, res) {
+        res.render('home')
+    })
+
+    app.get('/cad', function(req, res) {
         res.render('formulario')
     });
 
@@ -39,7 +43,7 @@ const Post = require('./../005/models/Post.js')
             titulo: req.body.titulo,
             conteudo: req.body.conteudo
         }).then(function() {
-            res.send('Post criado com sucesso')
+            res.redirect('/')
         }).catch(function(erro) {
             res.send(`Houve um erro em: " ${erro} "`)
         })
