@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const { engine } = require('express-handlebars');  // Correção no modo de importação
 const bodyParser = require('body-parser')
-
+const Post = require('./../005/models/Post.js')
 
 // config
     // Template Engine
@@ -35,7 +35,18 @@ const bodyParser = require('body-parser')
     });
 
     app.post('/rp', function(req, res) {
-        res.send(`Texto: ${req.body.titulo}</br> Conteudo: ${req.body.conteudo}`)
+        Post.create({
+            titulo: req.body.titulo,
+            conteudo: req.body.conteudo
+        }).then(function() {
+            res.send('Post criado com sucesso')
+        }).catch(function(erro) {
+            res.send(`Houve um erro em: " ${erro} "`)
+        })
+        
+        
+        
+        //res.send(`Texto: ${req.body.titulo}</br> Conteudo: ${req.body.conteudo}`)
     })
 
 
