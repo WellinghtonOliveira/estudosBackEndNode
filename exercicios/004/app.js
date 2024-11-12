@@ -24,10 +24,13 @@ const { engine } = require('express-handlebars');  // Correção no modo de impo
         });
 
     // Rotas
-    app.get('/cad', function(req, res) {
+    app.get('/', function(req, res) {
         res.render('formulario')
     });
 
+    app.post('/rp', function(req, res) {
+        res.send('FORMULARIO RECEBIDO!')
+    })
 
 
 
